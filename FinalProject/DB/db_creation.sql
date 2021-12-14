@@ -352,13 +352,13 @@ ALTER TABLE `meals`
 --
 ALTER TABLE `meals_orders`
   ADD CONSTRAINT `meals_orders_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `orders` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `meals_orders_ibfk_2` FOREIGN KEY (`meal_id`) REFERENCES `meals` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `meals_orders_ibfk_2` FOREIGN KEY (`meal_id`) REFERENCES `meals` (`ID`) ON DELETE NO CASCADE ON UPDATE NO CASCADE;
 
 --
 -- Constraints for table `orders`
 --
 ALTER TABLE `orders`
-  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`ID`) ON DELETE NO CASCADE ON UPDATE NO CASCADE;
 
 --
 -- Constraints for table `payments`

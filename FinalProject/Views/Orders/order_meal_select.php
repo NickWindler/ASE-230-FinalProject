@@ -1,6 +1,7 @@
 <?php
-require('../../Functions/auth_functions.php');
-require('../../Functions/admin_functions.php');
+require('../../../root.php');
+require(ROOT.'/FinalProject/Functions/auth_functions.php');
+require(ROOT.'/FinalProject/Functions/admin_functions.php');
 
 $meals = $mealFunctions->getMealsForRestaurant($_GET['rID'], $db);
 $addressArray = $addressFunctions->getAddressesForUser($res['ID'], $db);

@@ -1,6 +1,7 @@
 <?php
-require('../../../Functions/auth_functions.php');
-require('../../../Functions/admin_functions.php');
+require('../../../../root.php');
+require(ROOT.'/FinalProject/Functions/auth_functions.php');
+require(ROOT.'/FinalProject/Functions/admin_functions.php');
 is_logged();
 
 if($_SESSION['logged'] == false)

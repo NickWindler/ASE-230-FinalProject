@@ -1,6 +1,7 @@
 <?php
-require('../../Functions/auth_functions.php');
-require('../../DB/db_connect.php');
+require('../../../root.php');
+require(ROOT.'/FinalProject/Functions/auth_functions.php');
+require(ROOT.'/FinalProject/DB/db_connect.php');
 session_start();
 is_logged();
 

@@ -1,8 +1,8 @@
 <?php
-require('profile_functions.php');
-require('restaurant_functions.php');
-require('meal_functions.php');
-require('C:\xampp\htdocs\FinalProject\DB\db_connect.php');
+require(__DIR__.'/profile_functions.php');
+require(__DIR__.'/restaurant_functions.php');
+require(__DIR__.'/meal_functions.php');
+require(ROOT.'/FinalProject/DB/db_connect.php');
 
 $restaurantFunctions = new restaurantFunctions();
 $mealFunctions = new mealFunctions();
