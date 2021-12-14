@@ -1,3 +1,3 @@
 <?php
-echo '<pre >';
-print_r($_SERVER);
+header('Location:FinalProject/Views/index.php');
+?>
