@@ -63,18 +63,26 @@ $loggedUser = $stmt->fetch();
         <?php endif;?>
         <?php
         if(isset($_POST['submit'])) {
-            if($_POST['password'] == $_POST['rtPass']) {
-                if(strlen($_POST['password'])>=8 and strlen($_POST['password'])<=16) {
-                    $userFunctions->modifyUser($_GET['id'], $_POST['fName'], $_POST['lName'], $_POST['email'], $_POST['password'], $_POST['phone'], $loggedUser['ID'], $db);
-                }
-                else
-                    echo 'Password needs to be between 8 - 16 characters';
-            }
-            else
-                echo 'Passwords did not match';
+			$stmt = $db->prepare('SELECT * FROM users WHERE email = ?');
+			$stmt->execute([$_POST['email']]);
+			$isValidEmail = $stmt->fetch();
+			if(!empty($isValidEmail)) {
+				echo 'Email is already in use';
+			}
+			else {
+				if($_POST['password'] == $_POST['rtPass']) {
+					if(strlen($_POST['password'])>=8 and strlen($_POST['password'])<=16) {
+						$userFunctions->modifyUser($_GET['id'], $_POST['fName'], $_POST['lName'], $_POST['email'], $_POST['password'], $_POST['phone'], $loggedUser['ID'], $db);
+					}
+					else
+						echo 'Password needs to be between 8 - 16 characters';
+				}
+				else
+					echo 'Passwords did not match';
+			}
         }
         if(isset($_POST['delete']))
-            $userFunctions->deleteUser($_GET['id'], $db);
+            $userFunctions->deleteUser($_GET['id'], $loggedUser['ID'], $db);
 
         ?>
         <button class="w-100 btn btn-lg btn-primary" value="submit" name="submit" type="submit">Submit</button>

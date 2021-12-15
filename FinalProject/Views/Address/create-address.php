@@ -53,7 +53,7 @@ if($_SESSION['logged'] == false)
             $_POST['is_primary'] = 1;
         else
             $_POST['is_primary'] = 0;
-        $addressFunctions->createAddress($res['ID'], $_POST['is_primary'], $_POST['street'], $_POST['city'], $_POST['zip'], $_POST['state'], $_POST['delivery_instructions'], $db);
+        $addressFunctions->createAddress($_GET['user_id'], $_POST['is_primary'], $_POST['street'], $_POST['city'], $_POST['zip'], $_POST['state'], $_POST['delivery_instructions'], $db);
     }
     ?>
 </main>

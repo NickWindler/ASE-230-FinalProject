@@ -20,12 +20,18 @@ class userFunctions {
 		 alert('Profile has been modified')</script>";
     }
 
-    function deleteUser($id, $db) {
+    function deleteUser($id, $loggedUser, $db) {
         $stmt = $db->prepare('DELETE FROM users WHERE ID = ?');
         $stmt->execute([$id]);
         $stmt->fetch();
-        echo "<script>window.location.href='../Views/Authentication/sign-out.php';
-		 alert('Profile has been deleted')</script>";
+		if($id == $loggedUser) {
+			echo "<script>window.location.href='../Views/Authentication/sign-out.php';
+				alert('Profile has been deleted')</script>";
+		}
+		else {
+			echo "<script>window.location.href='../Views/admin.php';
+				alert('Profile has been deleted')</script>";
+		}
     }
 
     function searchUser($name, $db) {

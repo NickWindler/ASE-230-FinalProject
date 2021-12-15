@@ -75,7 +75,7 @@ $orderArray = $orderFunctions->getOrdersForUser($row['ID'], $db);
             <div>
                 <ul style="display: inline;">
                     <li style="display: inline-block; margin-left: -30px;"><h3>Addresses</h3></li>
-                    <li style="display: inline;"><a style="text-decoration: none; color: black;" href="Address/create-address.php"> - (Add)</a></li>
+                    <li style="display: inline;"><a style="text-decoration: none; color: black;" href="Address/create-address.php?user_id=<?=$_GET['id']?>"> - (Add)</a></li>
                 </ul>
             </div>
             <div style="height: 125px; width: 700px; overflow-y: auto;">
